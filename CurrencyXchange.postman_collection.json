@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "220ad93a-b112-4903-bb51-a2730987d63a",
+		"name": "CurrencyXchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 0a98734c535667383cdc2d75e746b3976cfe3e38",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "test_user1",
+							"description": "Username",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "Password",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test_user@gmail.com",
+							"description": "Email ID",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/registration/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"registration",
+						""
+					]
+				},
+				"description": "Use this API to create a quick register/signup user. You have to pass all the required params at the minimum to Register/SignUp. "
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 0a98734c535667383cdc2d75e746b3976cfe3e38",
+						"description": "Token Generate from Login API",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "test_user1",
+							"description": "Username",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "Password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login",
+						""
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "rahul",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Use this API to get token of associate User. You have to pass all the required params to get user token for further process."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin",
+							"description": "Superuser Username",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "Superuser Password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/api-token-auth/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"api-token-auth",
+						""
+					]
+				},
+				"description": "The authentication token is the authorization that you need to pass in order to access resources. This authorization helps us to validate that you are a valid user. APi uses tokens for validation.\r\n\r\nUse this API to validate your API user and obtain the authentication token. Copy this token and use it for the further call of the API's.\r\n\r\nYour API keys carry many privileges, so be sure to keep them secure!"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Wallet",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 1e6a87a69e37c73345ea8d3d64ac30a29b4f73a2",
+						"description": "API Token of User of You want to Create Wallet",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/create_wallet/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"create_wallet",
+						""
+					]
+				},
+				"description": "Use this API to create a wallet. You have to pass Authorisation Token to create Wallet for User."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Balance",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 6476b92e08258db3c3925c41822dfcf413318b55",
+						"description": "API Token of User of You want to Get Wallet Balance",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/get_balance/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get_balance",
+						""
+					]
+				},
+				"description": "Use this API to get a Wallet Balance. You have to pass Authorisation Token to read Wallet of User."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Balance",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 1e6a87a69e37c73345ea8d3d64ac30a29b4f73a2",
+						"description": "API Token of User of You want to Update Wallet Balance",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "balance",
+							"value": "50",
+							"description": "Amount to which your want to change balance",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/update_balance/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"update_balance",
+						""
+					]
+				},
+				"description": "Use this API to update a Wallet Balance. You have to pass Authorisation Token of User and Balance you want to update."
+			},
+			"response": []
+		},
+		{
+			"name": "Convert Currency",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "API Token of Login User",
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token 1e6a87a69e37c73345ea8d3d64ac30a29b4f73a2"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "from",
+							"value": "usd",
+							"description": "Base Currency ",
+							"type": "text"
+						},
+						{
+							"key": "to",
+							"value": "inr",
+							"description": "Output Currency",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "10",
+							"description": "Amount of Base Currency ",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/convert_currency/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"convert_currency",
+						""
+					]
+				},
+				"description": "Convert any money value from one currency to another at the latest API rates using this API endpoint."
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Photo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 6476b92e08258db3c3925c41822dfcf413318b55",
+						"description": "API Token of User of You want to Update Photo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profile_img",
+							"description": "Profile Image Path you want to Update",
+							"type": "file",
+							"src": "receipt.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/upload_photo/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"upload_photo",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
