@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <style type="text/css">
+    /* invoice styles here*/
+    body {
+      background: #efefef
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1 style="text-align: center;"><strong>Receipt</strong></h1>
+    <p>Transaction ID: {{transaction.transaction_id}}</p>
+    <p>Date of Transaction: {{transaction.create_at}}</p>
+    <p>Sender: {{transaction.sender}}</p>
+    <p>Sender Currency: {{transaction.sender_currency}}</p>
+    <p>Receiver: {{transaction.receiver}}</p>
+    <p>Receiver Currency: {{transaction.receiver_currency}}</p>
+    <p>Amount Transferred: {{transaction.amount}}</p>
+    <p>Exchange Rate: {{transaction.exchange_rate}}</p>
+  </div>
+
+</body>
+
+</html>

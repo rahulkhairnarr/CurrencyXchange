@@ -25,6 +25,14 @@ SECRET_KEY = '9nb)s$h7pq%84v-402+z&83sq1e&j$skn*l15daq#=7o51u^a)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Email Details 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.zoho.in"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "test_exchange_692@zohomail.in"
+EMAIL_HOST_PASSWORD = "CurrencyXchange"
+
 ALLOWED_HOSTS = ['*']
 
 
@@ -40,7 +48,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'userprofiles',
-    "wallet",
+    'wallet',
+    'analytics',
+    'schedular.apps.SchedularConfig'
 ]
 
 MIDDLEWARE = [

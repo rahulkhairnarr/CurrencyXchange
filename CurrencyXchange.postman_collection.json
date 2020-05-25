@@ -21,7 +21,7 @@
 					"formdata": [
 						{
 							"key": "username",
-							"value": "test_user1",
+							"value": "test_user25",
 							"description": "Username",
 							"type": "text"
 						},
@@ -33,7 +33,7 @@
 						},
 						{
 							"key": "email",
-							"value": "test_user@gmail.com",
+							"value": "test_user25@gmail.com",
 							"description": "Email ID",
 							"type": "text"
 						}
@@ -168,7 +168,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 1e6a87a69e37c73345ea8d3d64ac30a29b4f73a2",
+						"value": "Token 072269a44c3f78470d14e55d89564641f4676c81",
 						"description": "API Token of User of You want to Create Wallet",
 						"type": "text"
 					}
@@ -208,7 +208,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 6476b92e08258db3c3925c41822dfcf413318b55",
+						"value": "Token 0a98734c535667383cdc2d75e746b3976cfe3e38",
 						"description": "API Token of User of You want to Get Wallet Balance",
 						"type": "text"
 					}
@@ -237,7 +237,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 1e6a87a69e37c73345ea8d3d64ac30a29b4f73a2",
+						"value": "Token 0a98734c535667383cdc2d75e746b3976cfe3e38",
 						"description": "API Token of User of You want to Update Wallet Balance",
 						"type": "text"
 					}
@@ -247,7 +247,7 @@
 					"formdata": [
 						{
 							"key": "balance",
-							"value": "50",
+							"value": "50000",
 							"description": "Amount to which your want to change balance",
 							"type": "text"
 						},
@@ -285,7 +285,7 @@
 						"description": "API Token of Login User",
 						"key": "Authorization",
 						"type": "text",
-						"value": "Token 1e6a87a69e37c73345ea8d3d64ac30a29b4f73a2"
+						"value": "Token 0a98734c535667383cdc2d75e746b3976cfe3e38"
 					}
 				],
 				"body": {
@@ -335,7 +335,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 6476b92e08258db3c3925c41822dfcf413318b55",
+						"value": "Token 0a98734c535667383cdc2d75e746b3976cfe3e38",
 						"description": "API Token of User of You want to Update Photo",
 						"type": "text"
 					}
@@ -347,7 +347,7 @@
 							"key": "profile_img",
 							"description": "Profile Image Path you want to Update",
 							"type": "file",
-							"src": "receipt.png"
+							"src": "Collar 1_2_02.png"
 						}
 					]
 				},
@@ -364,6 +364,183 @@
 						""
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer Money",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 072269a44c3f78470d14e55d89564641f4676c81",
+						"description": "API Token of Sender",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "receiver",
+							"value": "admin",
+							"description": "Username of Receiver you user for creating login",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "1",
+							"description": "Amount you want to transfer (in your default currency)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/transfer/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transfer",
+						""
+					]
+				},
+				"description": "Use this API to transfer money to other account. You have to pass Authorisation Token to Transfer Money to Another User."
+			},
+			"response": []
+		},
+		{
+			"name": "Receipt PDF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/invoice/1/?token=0a98734c535667383cdc2d75e746b3976cfe3e38",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"invoice",
+						"1",
+						""
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "0a98734c535667383cdc2d75e746b3976cfe3e38",
+							"description": "API Token of Sender"
+						}
+					]
+				},
+				"description": "Use this API to get receipt of Transaction"
+			},
+			"response": []
+		},
+		{
+			"name": "Profilt & Loss Data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 072269a44c3f78470d14e55d89564641f4676c81",
+						"description": "API Token of User you want P/L Data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "start_date",
+							"value": "2020-05-01",
+							"description": "Starting Date You are looing for data",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/get_pl_data/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get_pl_data",
+						""
+					]
+				},
+				"description": "Use this API to get P/L of User from transaction based on Currenct Rates."
+			},
+			"response": []
+		},
+		{
+			"name": "Average Weekday Currency Transfer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 072269a44c3f78470d14e55d89564641f4676c81",
+						"description": "API token of User",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/get_avg_tranfer/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get_avg_tranfer",
+						""
+					]
+				},
+				"description": "Use this API to get No. of Currency Transfer in Weekday. 2: Represent Monday and 6 Friday."
+			},
+			"response": []
+		},
+		{
+			"name": "Monthly Transaction Report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/transaction/?token=072269a44c3f78470d14e55d89564641f4676c81",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transaction",
+						""
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "072269a44c3f78470d14e55d89564641f4676c81",
+							"description": "API token for User you want monthly transaction history"
+						}
+					]
+				},
+				"description": "Use this API to get Monthly transaction of Individual User in PDF"
 			},
 			"response": []
 		}

@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <style type="text/css">
+        /* invoice styles here*/
+        body {
+            background: #efefef;
+        }
+        .cell{
+            text-align:center;
+        }
+        h1{
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Monthly Transaction Report</h1>
+    <p>Month: {{month}}</p>
+    <p>Username: {{wallet.user.username}}</p>
+    <p>Current Balance: {{wallet.balance}}</p>
+    <p>Currency: {{wallet.currency}}</p>
+    <p>&nbsp;</p>
+    <table style="margin-left: auto; margin-right: auto;" width="971">
+        <tbody>
+            <tr>
+                <td class='cell'>Date</td>
+                <td class='cell'>Transaction ID</td>
+                <td class='cell'>Receiver</td>
+                <td class='cell'>Receiver Currency</td>
+                <td class='cell'>Amount</td>
+                <td class='cell'>Exchange Rate</td>
+            </tr>
+            {% for transaction in transactions %}
+            <tr>
+                <td class='cell'>{{transaction.create_at}}</td>
+                <td class='cell'>{{transaction.transaction_id}}</td>
+                <td class='cell'>{{transaction.receiver}}</td>
+                <td class='cell'>{{transaction.receiver_currency}}</td>
+                <td class='cell'>{{transaction.amount}}</td>
+                <td class='cell'>{{transaction.exchange_rate}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

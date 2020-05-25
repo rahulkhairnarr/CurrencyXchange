@@ -9,6 +9,13 @@ Following API has been create
 ● API to Update User Balance / Wallet
 ● API to convert currency
 ● API to allow users to upload a profile photo.
+● API to send money in a currency and receive the same in a different currency to another User
+● API to identify avg Profit and loss for the money transferred
+● API to average money transferred for every weekday
+● Create a PDF and send it users on successful order placement 
+● Setup Background Task Scheduler to send Monthly Statement
+
+Documentation : https://documenter.getpostman.com/view/7846454/SztA78vU?version=latest#8ef74686-d32f-4802-b8e1-63d963ae315f
 
 
 # Instructions
@@ -71,3 +78,20 @@ Following API has been create
     - CLI: curl --location --request POST 'http://localhost:8000/api/upload_photo/' \
             --header 'Authorization: "Token " + {{API Token}}' \
             --form '{{img}}'
+
+10. API to send money in a currency and receive the same in a different currency to another User
+    - CLI: curl --location --request POST 'http://localhost:8000/api/transfer/' \
+            --header 'Authorization: Token 072269a44c3f78470d14e55d89564641f4676c81' \
+            --form 'receiver=admin' \
+            --form 'amount=1'
+
+
+11. API to identify avg Profit and loss for the money transferred
+    - CLI: curl --location --request GET 'http://localhost:8000/api/get_pl_data/' \
+            --header 'Authorization: Token 072269a44c3f78470d14e55d89564641f4676c81' \
+            --form 'start_date=2020-05-01'
+
+
+12. API to average money transferred for every weekday
+    - CLI: curl --location --request GET 'http://localhost:8000/api/get_avg_tranfer/' \
+            --header 'Authorization: Token 072269a44c3f78470d14e55d89564641f4676c81'
